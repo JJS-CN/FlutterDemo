@@ -3,6 +3,7 @@ import 'package:Flutter_Learn/src/Const.dart';
 import 'src/ThemeInheritedRoute.dart';
 import 'src/EventGestureRoute.dart';
 import 'src/AnimationRoute.dart';
+import 'src/CustomWidgetRoute.dart';
 
 //程序入口
 void main() => runApp(MyApp());
@@ -16,6 +17,7 @@ var listName = [
   "主题与数据共享",
   "原始指针与手势",
   "动画",
+  "自定义Widget",
   "组合页面效果"
 ];
 
@@ -88,6 +90,11 @@ class SplashPage extends StatelessWidget {
                     context,
                     new MaterialPageRoute(
                         builder: (context) => new AnimationRoute()));
+              } else if (listName[index] == "自定义Widget") {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new CustomWidgetRoute()));
               } else if (listName[index] == "滚动类控件") {
                 Navigator.pushNamed(context, RouteKey_ScrollWidgets);
               }
