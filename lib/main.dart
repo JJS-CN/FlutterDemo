@@ -4,6 +4,7 @@ import 'src/ThemeInheritedRoute.dart';
 import 'src/EventGestureRoute.dart';
 import 'src/AnimationRoute.dart';
 import 'src/CustomWidgetRoute.dart';
+import 'src/other_package/PubList.dart';
 
 //程序入口
 void main() => runApp(MyApp());
@@ -18,6 +19,7 @@ var listName = [
   "原始指针与手势",
   "动画",
   "自定义Widget",
+  "第三方Package包的使用",
   "组合页面效果"
 ];
 
@@ -47,8 +49,9 @@ class SplashPage extends StatelessWidget {
         itemCount: listName.length,
         itemBuilder: (BuildContext con, int index) {
           return GestureDetector(
-            child: ListTile(
-              title: Text(listName[index]),
+            child: Container(
+              padding: EdgeInsets.all(9),
+              child: Text(listName[index]),
             ),
             onTap: () {
               if (listName[index] == "带值跳转与回传") {
@@ -95,6 +98,11 @@ class SplashPage extends StatelessWidget {
                     context,
                     new MaterialPageRoute(
                         builder: (context) => new CustomWidgetRoute()));
+              } else if (listName[index] == "第三方Package包的使用") {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new PubListRoute()));
               } else if (listName[index] == "滚动类控件") {
                 Navigator.pushNamed(context, RouteKey_ScrollWidgets);
               }
